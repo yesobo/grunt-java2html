@@ -1,0 +1,9 @@
+{
+  "name": "RenameAllToLowerCase",
+  "description": "",
+  "version": "0.0.1",
+  "dependencies": {
+    "glob": "*"
+  },
+  "main": "index.js"
+}
