@@ -10,42 +10,53 @@
 
 module.exports = function (grunt) {
 
+  var node_java2html = require('./node-java2html.js');
+
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
 
   grunt.registerMultiTask('java2html', 'Converts Java source code files to html files with syntax hightlighting', function () {
 
-    // Merge task-specific and/or target-specific options with these defaults.
+    /*
     var options = this.options({
-      punctuation: '.',
-      separator: ', '
     });
+    */
+
+    var fileCounter = 0;
 
     // Iterate over all specified file groups.
     this.files.forEach(function (file) {
-      // Concat specified files.
-      var src = file.src.filter(function (filepath) {
-        // Warn on and remove invalid source files (if nonull was set).
+      file.src.filter(function (filepath) {
         if (!grunt.file.exists(filepath)) {
           grunt.log.warn('Source file "' + filepath + '" not found.');
           return false;
         } else {
-          return true;
+          if (grunt.file.isDir(filepath)) {
+            return false;
+          } else {
+            return true;
+          }
         }
       }).map(function (filepath) {
         // Read file source.
-        return grunt.file.read(filepath);
-      }).join(grunt.util.normalizelf(options.separator));
+        grunt.log.writeln('reading file: ' + filepath);
+        
+        var fileContent = grunt.file.read(filepath);
+        var newFilepath = filepath.replace('.java', '.html');
 
-      // Handle options.
-      src += options.punctuation;
+        var htmlResult = node_java2html.convert(fileContent);
 
-      // Write the destination file.
-      grunt.file.write(file.dest, src);
+        var writingPath = file.dest + '/' + newFilepath;
+
+        grunt.log.writeln('writing to: ' + writingPath);
+
+        grunt.file.write(writingPath, htmlResult);
+
+        fileCounter ++;
+      });
 
       // Print a success message.
-      grunt.log.writeln('File "' + file.dest + '" created.');
+      grunt.log.writeln(fileCounter + ' files processed.');
     });
   });
-
 };

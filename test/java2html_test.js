@@ -28,14 +28,28 @@ exports.java2html = {
     done();
   },
   default_options: function (test) {
-    test.expect(1);
+    test.expect(4);
 
-    var actual = grunt.file.read('tmp/default_options');
-    var expected = grunt.file.read('test/expected/default_options');
+    var actual = grunt.file.read('tmp/test/fixtures/java_source_level11.html');
+    var expected = grunt.file.read('test/expected/java_source_level11.html');
+    test.equal(actual, expected, 'should describe what the default behavior is.');
+
+    actual = grunt.file.read('tmp/test/fixtures/java_source_level12.html');
+    expected = grunt.file.read('test/expected/java_source_level12.html');
+    test.equal(actual, expected, 'should describe what the default behavior is.');
+
+    actual = grunt.file.read('tmp/test/fixtures/fixtures_2/java_source_level21.html');
+    expected = grunt.file.read('test/expected/java_source_level21.html');
+    test.equal(actual, expected, 'should describe what the default behavior is.');
+
+    actual = grunt.file.read('tmp/test/fixtures/fixtures_2/java_source_level22.html');
+    expected = grunt.file.read('test/expected/java_source_level22.html');
     test.equal(actual, expected, 'should describe what the default behavior is.');
 
     test.done();
-  },
+  }
+/*
+  ,
   custom_options: function (test) {
     test.expect(1);
 
@@ -45,4 +59,5 @@ exports.java2html = {
 
     test.done();
   }
+  */
 };
