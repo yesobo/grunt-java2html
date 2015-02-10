@@ -160,7 +160,8 @@ java2html.convert = (function() {
 
         multiLineComment += "*/";
         var paintedMLComment = "";
-        if (startsWith("/** ", multiLineComment) || startsWith("/**\t", multiLineComment) || startsWith("/**\n", multiLineComment)) {
+        if (startsWith("/** ", multiLineComment) || startsWith("/**\t", multiLineComment) 
+                || startsWith("/**\n", multiLineComment)) {
             paintedMLComment = javaDocStartTag + multiLineComment + spanEndtag;
         } else {
             paintedMLComment = commentStartTag + multiLineComment + spanEndtag;
@@ -260,15 +261,17 @@ java2html.convert = (function() {
         currentIndex.setIndex(0);
         while (currentIndex.getIndex() < sourceText.length && !debugVariable) {
             var currentChar = sourceText.charAt(currentIndex.getIndex());
-            //alert("Current Char = "+currentChar);
+            alert("Current Char = "+currentChar);
             append = true;
-            if (currentChar === ';' || currentChar === '\t' || currentChar === ' ' || currentChar === '\n' || currentChar === '(' || currentChar === ')') {
+            if (currentChar === ';' || currentChar === '\t' || currentChar === ' ' 
+                    || currentChar === '\n' || currentChar === '(' || currentChar === ')') {
                 finalText = processKeyWordTo(readToken, finalText);
                 readToken = "";
                 append = false;
                 currentIndex.nextIndex();
                 finalText = finalText + currentChar;
-            } else if (currentChar === "+" || currentChar === '-' || currentChar === '*' || currentChar === '=') {
+            } else if (currentChar === "+" || currentChar === '-' 
+                    || currentChar === '*' || currentChar === '=') {
                 finalText = finalText + currentChar;
                 readToken = "";
                 append = false;
@@ -287,12 +290,14 @@ java2html.convert = (function() {
                 finalText = processSingleQuoteTo(sourceText, finalText);
                 readToken = "";
                 append = false;
-            } else if (currentChar === '/' && sourceText.charAt(currentIndex.getIndex() + 1) === '*') {
+            } else if (currentChar === '/' 
+                    && sourceText.charAt(currentIndex.getIndex() + 1) === '*') {
                 finalText = processMultilineCommentTo(sourceText, finalText);
                 currentIndex.nextIndex();
                 readToken = "";
                 append = false;
-            } else if (currentChar === '/' && sourceText.charAt(currentIndex.getIndex() + 1) === '/') {
+            } else if (currentChar === '/' 
+                    && sourceText.charAt(currentIndex.getIndex() + 1) === '/') {
                 finalText = processSingleLineCommentTo(sourceText, finalText);
                 currentIndex.nextIndex();
                 readToken = "";
