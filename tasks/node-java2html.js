@@ -298,6 +298,7 @@ java2html.convert = (function() {
                 readToken = "";
                 append = false;
             } else if (currentChar === '<' || currentChar === '>') {
+                debugVariable = true;
                 finalText = finalText + currentChar;
                 readToken = "";
                 append = false;
