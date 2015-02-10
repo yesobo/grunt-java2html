@@ -9,11 +9,11 @@
     "url": "http://jesusespejo.es"
   },
   "repository": {
-  	"type": "git",
-  	"url": "git://github.com/yesobo/grunt-java2html.git"
+    "type": "git",
+    "url": "git://github.com/yesobo/grunt-java2html.git"
   },
   "bugs": {
-  	"url": "https://github.com/yesobo/grunt-java2html/issues"
+    "url": "https://github.com/yesobo/grunt-java2html/issues"
   },
   "license": "MIT",
   "main": "Gruntfile.js",
@@ -37,6 +37,9 @@
     "java",
     "java2html",
     "java to html",
-  	"highlight"
-  ]
+    "highlight"
+  ],
+  "dependencies": {
+    "htmlencode": "0.0.4"
+  }
 }

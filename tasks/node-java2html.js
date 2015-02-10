@@ -2,6 +2,8 @@ var exports = module.exports = {};
 
 var java2html = java2html || {};
 
+var htmlencode = require('htmlencode');
+
 java2html.convert = (function() {
     'use strict';
 
@@ -26,16 +28,6 @@ java2html.convert = (function() {
         };
     })();
 
-    var resultBuffer = (function() {
-        var buffer = "";
-        var add = function(string) {
-            buffer = buffer + string;
-        };
-        var get = function() {
-            return buffer;
-        };
-    })();
-
     var keyWords = new Array( "abstract", "assert", "boolean", "break", "byte", "case", "catch", "char", "class", "const", "continue", "default", "do", "double", "else", "enum", "extends", "final", "finally", "float", "for", "goto", "if", "implements", "import", "instanceof", "int", "interface", "long", "native", "new", "package", "private", "protected", "public", "return", "short", "static", "strictfp", "super", "switch", "synchronized", "this", "throw", "throws", "transient", "try", "void", "volatile", "while", "true", "false", "null" );
     var keyWordStartTag = "<span style='font-weight:bold;color:#7B0052;'>";
     var spanEndtag = "</span>";
@@ -46,6 +38,8 @@ java2html.convert = (function() {
     var commentStartTag = "<span style='color:#3F7F5F'>";
     var preStartTag = "<pre style='text-align: left; border: 1px dashed #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'>";
     var preEndTag = "</pre>";
+
+    var escapingChars = new Array("á", "é", "í", "ó", "ú", "ñ");
 
     var append = true;
 
@@ -106,7 +100,7 @@ java2html.convert = (function() {
             testCounter += 1;
 
         } //end of while
-        var paintedString = stringStartTag + stringLiteral + spanEndtag;
+        var paintedString = stringStartTag + htmlencode.htmlEncode(stringLiteral) + spanEndtag;
         return cb(paintedString);
     }
 
@@ -137,7 +131,7 @@ java2html.convert = (function() {
                 stringLiteral = stringLiteral + nextChar;
             }
         } //end of while
-        var paintedString = stringStartTag + stringLiteral + spanEndtag;
+        var paintedString = stringStartTag + htmlencode.htmlEncode(stringLiteral) + spanEndtag;
         return cb(paintedString);
     }
 
@@ -161,9 +155,9 @@ java2html.convert = (function() {
         multiLineComment += "*/";
         var paintedMLComment = "";
         if (startsWith("/** ", multiLineComment) || startsWith("/**\t", multiLineComment) || startsWith("/**\n", multiLineComment)) {
-            paintedMLComment = javaDocStartTag + multiLineComment + spanEndtag;
+            paintedMLComment = javaDocStartTag + htmlencode.htmlEncode(multiLineComment) + spanEndtag;
         } else {
-            paintedMLComment = commentStartTag + multiLineComment + spanEndtag;
+            paintedMLComment = commentStartTag + htmlencode.htmlEncode(multiLineComment) + spanEndtag;
         }
         currentIndex.nextIndex();
         return cb(paintedMLComment);
@@ -187,7 +181,7 @@ java2html.convert = (function() {
         }
 
         singleLineComment += "\n";
-        var paintedComment = commentStartTag + singleLineComment + spanEndtag;
+        var paintedComment = commentStartTag + htmlencode.htmlEncode(singleLineComment) + spanEndtag;
         return cb(paintedComment);
     }
 
