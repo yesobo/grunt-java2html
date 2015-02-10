@@ -34,10 +34,8 @@ module.exports = function (grunt) {
     // Configuration to be run (and then tested).
     java2html: {
       default_options: {
-        options: {
-        },
         files: {
-          'tmp': ['test/fixtures/**/*']
+          'tmp': ['test/fixtures/*.java', 'test/fixtures/fixtures_2/**/*']
         }
       }
     },

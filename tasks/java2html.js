@@ -44,7 +44,9 @@ module.exports = function (grunt) {
         var fileContent = grunt.file.read(filepath);
         var newFilepath = filepath.replace('.java', '.html');
 
+        grunt.log.writeln('converting content...');
         var htmlResult = node_java2html.convert(fileContent);
+        grunt.log.writeln('converted.');
 
         var writingPath = file.dest + '/' + newFilepath;
 

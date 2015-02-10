@@ -40,9 +40,11 @@ In this example all the .java files in src and other folders will be converted i
 ```js
 grunt.initConfig({
   java2html: {
-    files: {
-      'dest': ['src/**/*.java', 'other/*.java'],
-    },
+  	target: {
+	    files: {
+	      'dest': ['src/**/*.java', 'other/*.java'],
+	    }
+	}
   },
 })
 ```
