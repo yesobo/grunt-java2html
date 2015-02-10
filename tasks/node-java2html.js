@@ -260,7 +260,6 @@ java2html.convert = (function() {
         currentIndex.setIndex(0);
         while (currentIndex.getIndex() < sourceText.length && !debugVariable) {
             var currentChar = sourceText.charAt(currentIndex.getIndex());
-            console.log("Current Char = "+currentChar);
             append = true;
             if (currentChar === ';' || currentChar === '\t' || currentChar === ' ' || currentChar === '\n' || currentChar === '(' || currentChar === ')') {
                 finalText = processKeyWordTo(readToken, finalText);
@@ -298,11 +297,11 @@ java2html.convert = (function() {
                 readToken = "";
                 append = false;
             } else if (currentChar === '<' || currentChar === '>') {
-                debugVariable = true;
-                finalText = finalText + currentChar;
                 readToken = "";
                 append = false;
                 currentChar = htmlEscapeTo(currentChar, "");
+                finalText = finalText + currentChar;
+                currentIndex.nextIndex();
             } else {
                 readToken = readToken + currentChar;
             }
