@@ -297,7 +297,7 @@ java2html.convert = (function() {
             var currentChar = sourceText.charAt(currentIndex.getIndex());
             append = true;
             if (currentChar === ';' || currentChar === '\t' || currentChar === ' ' || currentChar === '\n' || currentChar === '(' || currentChar === ')') {
-                finalText = processKeyWordTo(readToken, finalText, options.keyWordColor);
+                finalText = processKeyWordTo(readToken, finalText, options.keyWordFont);
                 readToken = "";
                 append = false;
                 currentIndex.nextIndex();
@@ -308,27 +308,27 @@ java2html.convert = (function() {
                 append = false;
                 currentIndex.nextIndex();
             } else if (currentChar === '}' || currentChar === '{') {
-                finalText = processFlowerBracesTo(currentChar, processKeyWordTo(readToken, finalText, options.keyWordColor), options.flowerBracesColor);
+                finalText = processFlowerBracesTo(currentChar, processKeyWordTo(readToken, finalText, options.keyWordFont), options.flowerBracesFont);
                 readToken = "";
                 append = false;
                 currentIndex.nextIndex();
             } else if (currentChar === '"') {
-                finalText = processDoubleQuotesTo(sourceText, finalText, options.doubleQuotesColor);
+                finalText = processDoubleQuotesTo(sourceText, finalText, options.doubleQuotesFont);
                 readToken = "";
                 append = false;
                 currentIndex.nextIndex();
             } else if (currentChar === "'") {
-                finalText = processSingleQuoteTo(sourceText, finalText, options.singleQuotesColor);
+                finalText = processSingleQuoteTo(sourceText, finalText, options.singleQuotesFont);
                 readToken = "";
                 append = false;
                 currentIndex.nextIndex();
             } else if (currentChar === '/' && sourceText.charAt(currentIndex.getIndex() + 1) === '*') {
-                finalText = processMultilineCommentTo(sourceText, finalText, options.multiLineCommentColor, options.javadocColor);
+                finalText = processMultilineCommentTo(sourceText, finalText, options.multiLineCommentFont, options.javadocFont);
                 currentIndex.nextIndex();
                 readToken = "";
                 append = false;
             } else if (currentChar === '/' && sourceText.charAt(currentIndex.getIndex() + 1) === '/') {
-                finalText = processSingleLineCommentTo(sourceText, finalText, options.singeLineCommentColor);
+                finalText = processSingleLineCommentTo(sourceText, finalText, options.singeLineCommentFont);
                 currentIndex.nextIndex();
                 readToken = "";
                 append = false;
@@ -346,7 +346,7 @@ java2html.convert = (function() {
                 currentIndex.nextIndex();
             }
         }
-        result = getTag('preStart', options.mainBorderColor) + finalText + preEndTag;
+        result = getTag('preStart', options.mainBorder) + finalText + preEndTag;
         return result;
     }
     return main;

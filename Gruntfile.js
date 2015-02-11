@@ -41,14 +41,14 @@ module.exports = function (grunt) {
       custom_options: {
         options: {
           color: {
-            keyWordColor: '#003399',
-            flowerBracesColor: '#993300',
-            doubleQuotesColor: '#FFFF00',
-            singleQuotesColor: '#009900',
-            multiLineCommentColor: '#00FF00',
-            singeLineCommentColor: '#000000',
-            javadocColor: '#968989',
-            mainBorderColor: '#CC66FF'
+            keyWordFont: '#003399',
+            flowerBracesFont: '#993300',
+            doubleQuotesFont: '#FFFF00',
+            singleQuotesFont: '#009900',
+            multiLineCommentFont: '#00FF00',
+            singeLineCommentFont: '#000000',
+            javadocFont: '#968989',
+            mainBorder: '#CC66FF'
           },
           keepPath: true
         },

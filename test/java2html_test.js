@@ -27,6 +27,7 @@ exports.java2html = {
     // setup here if necessary
     done();
   },
+  /*
   default_options: function (test) {
     test.expect(4);
 
@@ -48,6 +49,7 @@ exports.java2html = {
 
     test.done();
   },
+  */
   custom_options: function (test) {
     test.expect(4);
 

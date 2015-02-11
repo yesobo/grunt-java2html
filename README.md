@@ -1,6 +1,6 @@
 # grunt-java2html
 
-> Grunt plugin that converts Java source code files to html files with syntax hightlighting
+> Converts Java source code files to html files with syntax hightlighting
 
 ## Getting Started
 This plugin requires Grunt.
@@ -17,36 +17,78 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('grunt-java2html');
 ```
 
-## The "ava2html task
+## Java2html task
 
 _Run this task with the `grunt java2html` command._
 
-### Overview
-In your project's Gruntfile, add a section named `java2html` to the data object passed into `grunt.initConfig()`.
+Task targets, files and options may be specified according to the Grunt [Configuring taks](http://gruntjs.com/configuring-tasks) guide.
+
+### Options
+
+#### color
+
+`Object` that defines the color of the highlighted elements on the html code:
+
+The highlighted elements are defined by the following keys:
+- keyWordFont
+- flowerBracesFont
+- doubleQuotesFont
+- singleQuotesFont
+- multiLineCommentFont
+- singeLineCommentFont
+- javadocFont
+- mainBorder
+
+Default values:
 
 ```js
-grunt.initConfig({
-  java2html: {
-    'location/to/html/files': ['file/to/java.java', 'another/java.java'],
-  },
-})
-```
+color: {
+  keyWordFont: '#7B0052',
+  flowerBracesFont: '#D3171B',
+  doubleQuotesFont: '#2A00FF',
+  singleQuotesFont: '#2A00FF',
+  multiLineCommentFont: '#3F7F5F',
+  singeLineCommentFont: '#3F7F5F',
+  javadocFont: '#3F5FBF',
+  mainBorder: '#008DEF'
+}
+
+#### keepPath
+Type: `Boolean` Default: `false`
+
+Maintains the folder structure of the java files, considering the location of the Gruntfile.js as the root folder.
 
 ### Usage Examples
 
-#### Default Options
-In this example all the .java files in src and other folders will be converted in .html files with the same name in the dest/src and dest/other folders respectively.
+#### Converts .java files on ´test/fixtures/` folder to html files with the same name located at `dest/` with custom hightlight colors.
 
 ```js
-grunt.initConfig({
-  java2html: {
-  	target: {
-	    files: {
-	      'dest': ['src/**/*.java', 'other/*.java'],
-	    }
-	}
+ java2html: {
+    'tmp': ['test/fixtures/*.java']
+    options: {
+      color: {
+        keyWordFont: '#003399',
+        flowerBracesFont: '#993300',
+        doubleQuotesFont: '#FFFF00',
+        singleQuotesFont: '#009900',
+        multiLineCommentFont: '#00FF00',
+        singeLineCommentFont: '#000000',
+        javadocFont: '#968989',
+        mainBorder: '#CC66FF'
+      }
+    }
   }
-})
+```
+
+#### Converts .java files on ´test/fixtures/` folder and subfolders to html files with the same name located at `dest/test/fixtures/...` maintaining its directory tree.
+
+```js
+ java2html: {
+    'tmp': ['test/fixtures/**/*.java']
+    options: {
+      keepPath: true;
+    }
+  }
 ```
 
 ## Contributing
