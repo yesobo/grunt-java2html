@@ -41,9 +41,14 @@ module.exports = function (grunt) {
         grunt.log.writeln('reading file: ' + filepath);
         
         var fileContent = grunt.file.read(filepath);
+
+        var newFilePath = "";
+        if (!options.keepPath) {
+          filepath = filepath.match(/\/([^/]*)$/)[1];
+        }
         var newFilepath = filepath.replace('.java', '.html');
 
-        var htmlResult = node_java2html.convert(fileContent, options);
+        var htmlResult = node_java2html.convert(fileContent, options.color || {});
 
         var writingPath = file.dest + '/' + newFilepath;
 

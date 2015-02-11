@@ -34,20 +34,23 @@ module.exports = function (grunt) {
     // Configuration to be run (and then tested).
     java2html: {
       default_options: {
-        files: {
+        files:      {
           'tmp/default_options': ['test/fixtures/*.java', 'test/fixtures/fixtures_2/**/*']
         }
       },
       custom_options: {
         options: {
-          keyWordColor: '#003399',
-          flowerBracesColor: '#993300',
-          doubleQuotesColor: '#FFFF00',
-          singleQuotesColor: '#009900',
-          multiLineCommentColor: '#00FF00',
-          singeLineCommentColor: '#000000',
-          javadocColor: '#968989',
-          mainBorderColor: '#CC66FF'
+          color: {
+            keyWordColor: '#003399',
+            flowerBracesColor: '#993300',
+            doubleQuotesColor: '#FFFF00',
+            singleQuotesColor: '#009900',
+            multiLineCommentColor: '#00FF00',
+            singeLineCommentColor: '#000000',
+            javadocColor: '#968989',
+            mainBorderColor: '#CC66FF'
+          },
+          keepPath: true
         },
         files: {
           'tmp/custom_options': ['test/fixtures/**/*.java']

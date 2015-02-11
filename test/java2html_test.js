@@ -30,19 +30,19 @@ exports.java2html = {
   default_options: function (test) {
     test.expect(4);
 
-    var actual = grunt.file.read('tmp/default_options/test/fixtures/java_source_level11.html');
+    var actual = grunt.file.read('tmp/default_options/java_source_level11.html');
     var expected = grunt.file.read('test/expected/default_options/java_source_level11.html');
     test.equal(actual, expected, 'java_source_level11 is properly parsed.');
 
-    actual = grunt.file.read('tmp/default_options/test/fixtures/java_source_level12.html');
+    actual = grunt.file.read('tmp/default_options/java_source_level12.html');
     expected = grunt.file.read('test/expected/default_options/java_source_level12.html');
     test.equal(actual, expected, 'java_source_level12 is properly parsed');
 
-    actual = grunt.file.read('tmp/default_options/test/fixtures/fixtures_2/java_source_level21.html');
+    actual = grunt.file.read('tmp/default_options/java_source_level21.html');
     expected = grunt.file.read('test/expected/default_options/java_source_level21.html');
     test.equal(actual, expected, 'java_source_level21 is properly parsed');
 
-    actual = grunt.file.read('tmp/default_options/test/fixtures/fixtures_2/java_source_level22.html');
+    actual = grunt.file.read('tmp/default_options/java_source_level22.html');
     expected = grunt.file.read('test/expected/default_options/java_source_level22.html');
     test.equal(actual, expected, 'java_source_level22 is properly parsed');
 
