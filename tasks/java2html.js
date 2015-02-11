@@ -17,10 +17,9 @@ module.exports = function (grunt) {
 
   grunt.registerMultiTask('java2html', 'Converts Java source code files to html files with syntax hightlighting', function () {
 
-    /*
     var options = this.options({
+
     });
-    */
 
     var fileCounter = 0;
 
@@ -44,9 +43,7 @@ module.exports = function (grunt) {
         var fileContent = grunt.file.read(filepath);
         var newFilepath = filepath.replace('.java', '.html');
 
-        grunt.log.writeln('converting content...');
-        var htmlResult = node_java2html.convert(fileContent);
-        grunt.log.writeln('converted.');
+        var htmlResult = node_java2html.convert(fileContent, options);
 
         var writingPath = file.dest + '/' + newFilepath;
 

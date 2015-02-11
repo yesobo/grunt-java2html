@@ -17,7 +17,7 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('grunt-java2html');
 ```
 
-## The "java2html" task
+## The "ava2html task
 
 _Run this task with the `grunt java2html` command._
 
@@ -45,7 +45,7 @@ grunt.initConfig({
 	      'dest': ['src/**/*.java', 'other/*.java'],
 	    }
 	}
-  },
+  }
 })
 ```
 

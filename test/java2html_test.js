@@ -30,34 +30,43 @@ exports.java2html = {
   default_options: function (test) {
     test.expect(4);
 
-    var actual = grunt.file.read('tmp/test/fixtures/java_source_level11.html');
-    var expected = grunt.file.read('test/expected/java_source_level11.html');
-    test.equal(actual, expected, 'should describe what the default behavior is.');
+    var actual = grunt.file.read('tmp/default_options/test/fixtures/java_source_level11.html');
+    var expected = grunt.file.read('test/expected/default_options/java_source_level11.html');
+    test.equal(actual, expected, 'java_source_level11 is properly parsed.');
 
-    actual = grunt.file.read('tmp/test/fixtures/java_source_level12.html');
-    expected = grunt.file.read('test/expected/java_source_level12.html');
-    test.equal(actual, expected, 'should describe what the default behavior is.');
+    actual = grunt.file.read('tmp/default_options/test/fixtures/java_source_level12.html');
+    expected = grunt.file.read('test/expected/default_options/java_source_level12.html');
+    test.equal(actual, expected, 'java_source_level12 is properly parsed');
 
-    actual = grunt.file.read('tmp/test/fixtures/fixtures_2/java_source_level21.html');
-    expected = grunt.file.read('test/expected/java_source_level21.html');
-    test.equal(actual, expected, 'should describe what the default behavior is.');
+    actual = grunt.file.read('tmp/default_options/test/fixtures/fixtures_2/java_source_level21.html');
+    expected = grunt.file.read('test/expected/default_options/java_source_level21.html');
+    test.equal(actual, expected, 'java_source_level21 is properly parsed');
 
-    actual = grunt.file.read('tmp/test/fixtures/fixtures_2/java_source_level22.html');
-    expected = grunt.file.read('test/expected/java_source_level22.html');
-    test.equal(actual, expected, 'should describe what the default behavior is.');
+    actual = grunt.file.read('tmp/default_options/test/fixtures/fixtures_2/java_source_level22.html');
+    expected = grunt.file.read('test/expected/default_options/java_source_level22.html');
+    test.equal(actual, expected, 'java_source_level22 is properly parsed');
 
     test.done();
-  }
-/*
-  ,
+  },
   custom_options: function (test) {
-    test.expect(1);
+    test.expect(4);
 
-    var actual = grunt.file.read('tmp/custom_options');
-    var expected = grunt.file.read('test/expected/custom_options');
-    test.equal(actual, expected, 'should describe what the custom option(s) behavior is.');
+    var actual = grunt.file.read('tmp/custom_options/test/fixtures/java_source_level11.html');
+    var expected = grunt.file.read('test/expected/custom_options/java_source_level11.html');
+    test.equal(actual, expected, 'java_source_level11 is properly parsed.');
+
+    actual = grunt.file.read('tmp/custom_options/test/fixtures/java_source_level12.html');
+    expected = grunt.file.read('test/expected/custom_options/java_source_level12.html');
+    test.equal(actual, expected, 'java_source_level12 is properly parsed');
+
+    actual = grunt.file.read('tmp/custom_options/test/fixtures/fixtures_2/java_source_level21.html');
+    expected = grunt.file.read('test/expected/custom_options/java_source_level21.html');
+    test.equal(actual, expected, 'java_source_level21 is properly parsed');
+
+    actual = grunt.file.read('tmp/custom_options/test/fixtures/fixtures_2/java_source_level22.html');
+    expected = grunt.file.read('test/expected/custom_options/java_source_level22.html');
+    test.equal(actual, expected, 'java_source_level22 is properly parsed');
 
     test.done();
   }
-  */
 };

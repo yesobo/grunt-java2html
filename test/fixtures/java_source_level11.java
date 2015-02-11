@@ -3,6 +3,7 @@
  */
 public List<String> myLevel11Function() {
 	// Inline comment for testing purposes
+	char c = 'a';
 	String variable = new String("my stríng Español");
 	return true;
 }
