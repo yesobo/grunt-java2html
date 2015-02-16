@@ -52,15 +52,17 @@ color: {
   javadocFont: '#3F5FBF',
   mainBorder: '#008DEF'
 }
+```
 
 #### keepPath
+
 Type: `Boolean` Default: `false`
 
 Maintains the folder structure of the java files, considering the location of the Gruntfile.js as the root folder.
 
 ### Usage Examples
 
-#### Converts .java files on ´test/fixtures/` folder to html files with the same name located at `dest/` with custom hightlight colors.
+#### Converts .java files on `test/fixtures/` folder to html files with the same name located at `dest/` with custom hightlight colors.
 
 ```js
  java2html: {
@@ -80,7 +82,7 @@ Maintains the folder structure of the java files, considering the location of th
   }
 ```
 
-#### Converts .java files on ´test/fixtures/` folder and subfolders to html files with the same name located at `dest/test/fixtures/...` maintaining its directory tree.
+#### Converts .java files on `test/fixtures/` folder and subfolders to html files with the same name located at `dest/test/fixtures/...` maintaining its directory tree.
 
 ```js
  java2html: {
