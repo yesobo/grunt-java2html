@@ -86,7 +86,7 @@ Maintains the folder structure of the java files, considering the location of th
  java2html: {
     'tmp': ['test/fixtures/**/*.java']
     options: {
-      keepPath: true;
+      keepPath: true
     }
   }
 ```
